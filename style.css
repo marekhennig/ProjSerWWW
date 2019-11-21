@@ -1,0 +1,41 @@
+header {
+	width:100%;
+}
+header > img{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+}
+body{
+	background-color: gray;
+}
+td {
+	border: 1px;
+	border-style: solid;
+	border-color:	black; 
+}
+.naglowek td {
+   background-color: #696969;
+ }
+ content{
+	 position:fixed;
+	 right: 0px;
+	 width:70%;
+ }
+ aside{
+	 position: fixed;
+	 left: 0px;
+	 width:30%
+ }
+ footer{
+	 position: fixed;
+	 bottom:0px;
+ }
+ a:hover {
+  color: white;
+  text-decoration: underline;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
