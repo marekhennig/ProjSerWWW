@@ -33,13 +33,16 @@
 			<button type="button" id="buttonShowMass" class="btn btn-primary" onclick="pokazMasyPlanet()">
 				Pokaż masy planet 
 			</button>
+			<div id="like_button_container" ></div>
         </content>
         <aside>
            <div class="col-5">
 				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">				
 					<h3>Menu Główne</h3>				
 					<a class="nav-link" href="index.html" role="tab" aria-selected="false">Strona Główna</a></li>
-					<a class="nav-link active"  href="drugi.html" role="tab"  aria-selected="true">Drugi</a></li>					
+					<a class="nav-link active"  href="drugi.html" role="tab"  aria-selected="true">Drugi</a></li>
+					<a class="nav-link" href="http://localhost:8080/notes" role="tab" aria-selected="false">Dodawanie wpisów</a></li>
+					
 			</div>
         </aside>
         <footer>
@@ -116,5 +119,12 @@
 				my_button.removeAttribute("disabled")
 			}
 		</script>
+		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+		<!-- Load our React component. -->
+		<script src="like_button.js"></script>
+	
 	 </body>
 </html>
