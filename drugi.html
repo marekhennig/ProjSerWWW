@@ -1,45 +1,120 @@
 <!doctype html>
 <html>
-     <head>
-          <meta charset="UTF-8" />
-          <title>Astrofizyka dla zielonych</title>
-		  <link rel="shortcut icon" type="image/png" href="favicon.png" sizes="32x32" />
-		  <link rel="stylesheet" href="style.css" />
-     </head>
-     <body>
-          <header>
-				<a href="index.html">
-					<img src="logo_transparent.png" alt="logo">
-				</a>
-				<hr>
-          </header>
-          <content>
-				<h2>Odległości Od Słońca</h2>
-				<p>W tabeli poniżej przedstawiono średnie odległości planet od Słońca</p>
-				<table>
-					<tr class="naglowek">
-					  <td>Merkury</td> <td>Wenus</td> <td>Ziemia</td><td>Mars</td><td>Jowisz</td><td>Saturn</td><td>Uran</td><td>Neptun</td>
-					</tr>
-					<tr>
-					  <td>57 910 000 km</td> <td>108 200 000 km</td> <td>149 600 000 km</td><td>227 900 000 km</td><td>778 500 000 km</td><td>1,434E9 km</td><td>2,871E9 km</td><td>4,495E9 km</td>
-					</tr>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Astrofizyka dla zielonych</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="shortcut icon" type="image/png" href="favicon.png" sizes="32x32" />
+		<link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+			<a href="index.html">
+				<img src="logo_transparent.png" alt="logo">
+			</a>
+			<hr>
+        </header>
+        <content>
+			<h2>Układ Słoneczny</h2>
+			<p>W tabeli poniżej przedstawiono średnie odległości planet od Słońca. Można również użyć przycisków wyświetlenia do miar astronomicznych, oraz mas planet</p>
+			<table id="tabela_miar">
+				<tr class="naglowek">
+					<td>Merkury</td> <td>Wenus</td> <td>Ziemia</td><td>Mars</td><td>Jowisz</td><td>Saturn</td><td>Uran</td><td>Neptun</td>
+				</tr>
+				<tr id = "miary1">
+					<td>57 910 000 km</td> <td>108 200 000 km</td> <td>149 600 000 km</td><td>227 900 000 km</td><td>778 500 000 km</td><td>1,434E9 km</td><td>2,871E9 km</td><td>4,495E9 km</td>
+				</tr>
 					
-				</table>				
-			   
-          </content>
-          <aside>
-                <nav>
-					<ul id="menu">
-						<h3>Menu Główne</h3>
-						<li><a href="index.html">Strona Główna</a></li>
-						<li><a href="drugi.html">Drugi</a></li>
-					</ul>
-				</nav>
-          </aside>
-          <footer>
-               <p>Tworzone i redagowane przez: Marek Hennig</p>
-			  <p>Kontakt: <a href="mailto:marekhennig11@gmail.com">
-			  marekhennig11@gmail.com</a>.</p>
-          </footer>
-     </body>
+			</table>	
+			<p></p>			
+			<button type="button" id="buttonShowAU" class="btn btn-primary" onclick="pokazJednostkiAstronom()">
+				Pokaż jednostki astronomiczne 
+			</button>
+			<button type="button" id="buttonShowMass" class="btn btn-primary" onclick="pokazMasyPlanet()">
+				Pokaż masy planet 
+			</button>
+        </content>
+        <aside>
+           <div class="col-5">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">				
+					<h3>Menu Główne</h3>				
+					<a class="nav-link" href="index.html" role="tab" aria-selected="false">Strona Główna</a></li>
+					<a class="nav-link active"  href="drugi.html" role="tab"  aria-selected="true">Drugi</a></li>					
+			</div>
+        </aside>
+        <footer>
+            <p>Tworzone i redagowane przez: Marek Hennig</p>
+			<p>Kontakt: <a href="mailto:marekhennig11@gmail.com">
+			marekhennig11@gmail.com</a>.</p>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script>
+			function insertAfter( referenceNode, newNode )
+			{
+				referenceNode.parentNode.insertBefore( newNode, referenceNode.nextSibling );
+			}
+			function pokazJednostkiAstronom()
+			{
+			newtr = document.createElement("tr");
+			newtr.innerHTML = "<td>0,3871 au</td> <td>0,7233 au</td> <td>1,0000 au</td><td>1,5237 au</td><td>5,2034 au</td><td>9,5371 au</td><td>19,1913 au</td><td>30,0690 au</td>";
+			newtr.setAttribute('id', "miary2"); 
+			my_tr = document.getElementById("miary1");
+		
+			my_button = document.getElementById("buttonShowAU");
+			my_button.setAttribute('disabled', "disabled")
+			insertAfter(my_tr, newtr);
+			newButton = document.createElement("button");
+			newButton.setAttribute('id', "buttonHide"); 
+			newButton.setAttribute('type', "button"); 
+			newButton.setAttribute('class', "btn btn-primary"); 
+			newButton.setAttribute('onclick', "ukryjJednostkiAstronom()"); 
+			newButton.innerHTML = "Ukryj miary astronomiczne";
+			newButton.setAttribute('value', "ukryj"); 
+			
+			tabela_miar = document.getElementById("tabela_miar");
+			insertAfter(tabela_miar, newButton);
+			}
+			function ukryjJednostkiAstronom()
+			{
+				var my_tr = document.getElementById("miary2");
+				var my_button = document.getElementById("buttonHide");
+				my_tr.parentNode.removeChild(my_tr);
+				my_button.parentNode.removeChild(my_button);		
+				my_button = document.getElementById("buttonShowAU");
+				my_button.removeAttribute("disabled")
+			}
+			function pokazMasyPlanet()
+			{
+			newtr = document.createElement("tr");
+			newtr.innerHTML = "<td>0,0553 [mas ziemi]</td> <td>0,81492</td> <td>1</td><td>0,107</td><td>318,721</td><td>95,152</td><td>14,534</td><td>17,145</td>";
+			newtr.setAttribute('id', "masy"); 
+			my_tr = document.getElementById("miary1");
+		
+			my_button = document.getElementById("buttonShowMass");
+			my_button.setAttribute('disabled', "disabled")
+			insertAfter(my_tr, newtr);
+			newButton = document.createElement("button");
+			newButton.setAttribute('id', "buttonHideMass"); 
+			newButton.setAttribute('type', "button"); 
+			newButton.setAttribute('class', "btn btn-primary"); 
+			newButton.setAttribute('onclick', "ukryjMasyPlanet()"); 
+			newButton.innerHTML = "Ukryj masy planet";
+			newButton.setAttribute('value', "ukryj"); 
+			
+			tabela_miar = document.getElementById("tabela_miar");
+			insertAfter(tabela_miar, newButton);
+			}
+			function ukryjMasyPlanet()
+			{
+				var my_tr = document.getElementById("masy");
+				var my_button = document.getElementById("buttonHideMass");
+				my_tr.parentNode.removeChild(my_tr);
+				my_button.parentNode.removeChild(my_button);		
+				my_button = document.getElementById("buttonShowMass");
+				my_button.removeAttribute("disabled")
+			}
+		</script>
+	 </body>
 </html>
